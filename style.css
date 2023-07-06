@@ -9,7 +9,7 @@
     font-size: 62.5%;
 
     --text-color:white;
-    --bg-url: url(./assets/bg-mobile.png);
+    --bg-url: url(./assets/bg-mobile.jpg);
     --stroke-color: rgba(255, 255, 255, 0.50);
     --surface-color: rgba(255, 255, 255, 0.10);
     --surface-color-hover: rgba(255, 255, 255, 0.05);
@@ -29,6 +29,9 @@
 
 body {
     background: var(--bg-url) no-repeat top center/cover;
+    height: 100vh;
+
+    transition: background 0.2s linear;
 }
 
 body * {
@@ -39,6 +42,7 @@ body * {
 #container {
     width: 100%;
     max-width: 58.8rem;
+
     margin: 5.6rem auto 0rem;
     padding: 0 2.4rem;
 }
@@ -86,11 +90,13 @@ body * {
     left: 0;
     z-index: 1;
     transform: translateY(-50%);
+    transition: outline 0.2s ease-in-out, background 0.5s ease-in-out;
+
+    animation: slide-back 0.2s;
 }
 
 .light #switch button {
-    right: 0;
-    left: initial;
+    animation: slide-in 0.2s forwards;
 }
 
 #switch button:hover {
@@ -165,6 +171,8 @@ ul li a:hover {
     padding: 1.6rem;
 
     border-radius: 50%;
+
+    transition: background 0.2s;
 }
 
 #social-links a:hover {
@@ -178,6 +186,8 @@ footer {
     font-size: 1.4rem;
 }
 
+/* media queries */
+
 @media (min-width: 700px) {
     :root {
         --bg-url: url(./assets/bg-desktop.jpg);
@@ -185,5 +195,26 @@ footer {
 
     .light {
         --bg-url: url(./assets/bg-desktop-light.jpg);
+    }
+}
+
+/* animation */
+@keyframes slide-in {
+    from {
+        left: 0;
+    }
+
+    to {
+        left: 50%;
+    }
+}
+
+@keyframes slide-back {
+    from {
+        left: 50%;
+    }
+
+    to {
+        left: 0;
     }
 }

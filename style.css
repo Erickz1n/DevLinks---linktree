@@ -199,6 +199,34 @@ footer {
     animation: topdown 2.5s;
 }
 
+footer a {
+    text-decoration: none;
+
+    transition: 0.5s;
+    position: relative;
+}
+
+footer a:hover {
+    color: rgb(126, 41, 206);
+}
+
+footer a::after {
+    content: '';
+    width: 0%;
+    height: 1px;
+    background: rgb(126, 41, 206);
+
+    position: absolute;
+    left: 0;
+    bottom: -1px;
+
+    transition: width 0.5s ease-in-out;
+}
+
+footer a:hover::after {
+    width: 100%;
+}
+
 /* media queries */
 
 @media (min-width: 700px) {
